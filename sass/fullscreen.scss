@@ -1,0 +1,217 @@
+$color-one: #000DF2;
+$color-two: #00B5FF;
+$color-three: #FF0000;
+$color-four: #FF6E00;
+$color-five: #00B800;
+
+$tandelle: "tandelle", sans-serif;
+$proxima: "proxima-nova", sans-serif;
+
+@mixin fullscreen {
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    //overflow: hidden;
+  }
+
+  header {
+    width: 100%;
+    height: 75px;
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    float: left;
+    text-align: right;
+    background-color: #efefef;
+    z-index: 9999;
+
+    .navContainer {
+      width: 100%;
+      height: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+
+      .logo {
+        width: 30%;
+        max-width: calc(1200px - 30%);
+        height: 100%;
+        background: url("../images/logoFull.png") no-repeat center left / auto 90%;
+        position: relative;
+        float: left;
+        margin: 0px 0px 0px 5%;
+      }
+
+      nav {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        max-width: 1200px;
+
+        .borders {
+          padding: 0px;
+          width: 60%;
+          height: 100%;
+          position: relative;
+          float: left;
+          margin: 0px 5% 0px 0px;
+
+          .navItem {
+            position: relative;
+            float: left;
+            top: 0px;
+            width: 20%;
+            height: 100%;
+            text-align: center;
+            line-height: 3.5em;
+            font-family: "proxima-nova", sans-serif;
+            font-weight: lighter;
+            font-size: 20px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            background-color: #efefef;
+            border: none;
+            margin: 0px;
+            padding: 0px;
+          }
+
+          .navItem:focus {
+            border: none;
+            outline: 0;
+          }
+
+          .navItem:last-child {
+            border-right: none;
+          }
+
+          #home {
+            border-top: 5px solid $color-one;
+          }
+
+          #home:hover, #home:focus {
+            background-color: $color-one;
+            color: #ffffff;
+          }
+
+          #about {
+            border-top: 5px solid $color-two;
+          }
+
+          #about:hover, #about:focus {
+            background-color: $color-two;
+            color: #ffffff;
+          }
+          #apps {
+            border-top: 5px solid $color-three;
+          }
+
+          #apps:hover, #apps:focus {
+            background-color: $color-three;
+            color: #ffffff;
+          }
+
+          #careers {
+            border-top: 5px solid $color-four;
+          }
+
+          #careers:hover, #careers:focus {
+            background-color: $color-four;
+            color: #ffffff;
+          }
+
+          #contact {
+            border-top: 5px solid $color-five;
+          }
+
+          #contact:hover, #contact:focus {
+            background-color: $color-five;
+            color: #ffffff;
+          }
+
+        }
+        //end borders
+      }
+      //end nav
+    }
+    //end navContainer
+  }
+  //end header
+
+  .sections {
+    height: 100%;
+    //position: absolute;
+    width: 100%;
+    //overflow: hidden;
+
+    section {
+      width: 100%;
+      height: auto;
+      min-height: 600px;
+      position: relative;
+      float: left;
+      top: 75px;
+
+      #anchorHome, #anchorAbout, #anchorApps, #anchorCareers, #anchorContact, {
+        position: absolute;
+        height: 75px;
+        float: left;
+        width: 100%;
+        top: -75px;
+      }
+
+      .interior {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        margin: 0 auto;
+
+        h2 {
+          font-family: $tandelle;
+          font-size: 60px;
+          color: rgba(255, 255, 255, 0.8);
+          margin: 0px;
+          padding: 0px 0px 0px 6%;
+        }
+      }
+      //end interior
+    }
+    //end section default
+
+    #homeSection {
+      background-color: $color-one;
+    }
+    //end homeSection
+
+    #aboutSection {
+      background-color: $color-two;
+    }
+    //end aboutSection
+
+    #appsSection {
+      background-color: $color-three;
+    }
+    //end appsSection
+
+    #careersSection {
+      background-color: $color-four;
+    }
+    //end careersSection
+
+    #contactSection {
+      background-color: $color-five;
+    }
+    //end contactSection
+
+    footer {
+      background-color: #222222;
+      width: 100%;
+      height: 200px;
+      position: relative;
+      float: left;
+    }
+  }
+//end sections
+}
