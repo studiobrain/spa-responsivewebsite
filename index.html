@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Phone Rules</title>
+    <title>Studio Brainchild LLC</title>
     <script src="http://code.angularjs.org/1.2.10/angular.js"></script>
     <script src="http://code.angularjs.org/1.2.10/angular-animate.min.js"></script>
     <script src="http://code.angularjs.org/1.2.10/angular-touch.js"></script>
@@ -16,25 +16,25 @@
         } catch (e) {
         }
     </script>
-    <link rel="stylesheet" href="stylesheets/screen.css" type="text/css">
+    <link rel="stylesheet" href="styles/css/screen.css" type="text/css">
 </head>
-<body ng-app="phonerulesweb">
+<body ng-app="sb-web">
 <header>
-    <div class="navContainer" ng-controller="pageController">
+    <div class="navContainer" ng-controller="pageController" ng-init="surePage();">
         <div class="logo"></div>
         <nav>
             <div class="borders">
-                <button ng-click="go('/home', 'homeSection');" class="navItem"
+                <button ng-click="go('home', 'homeSection');" class="navItem"
                         id="home">home
                 </button>
-                <button ng-click="go('/about', 'aboutSection');" class="navItem" id="about">about
+                <button ng-click="go('about', 'aboutSection');" class="navItem" id="about">about
                 </button>
-                <button ng-click="go('/apps', 'appsSection');" class="navItem" id="apps">apps
+                <button ng-click="go('apps', 'appsSection');" class="navItem" id="apps">apps
                 </button>
-                <button ng-click="go('/careers', 'careersSection');" class="navItem" id="careers">
+                <button ng-click="go('careers', 'careersSection');" class="navItem" id="careers">
                     careers
                 </button>
-                <button ng-click="go('/contact', 'contactSection');" class="navItem" id="contact">
+                <button ng-click="go('contact', 'contactSection');" class="navItem" id="contact">
                     contact
                 </button>
             </div>

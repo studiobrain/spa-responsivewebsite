@@ -1,42 +1,39 @@
-angular.module('phonerulesweb', ['ngRoute', 'ngAnimate', 'ngTouch'])
-
-    .config(['$httpProvider', '$routeProvider', function ($httpProvider, $routeProvider) {
-
-        $httpProvider.defaults.useXDomain = true;
-        delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
+angular.module('sb-web', ['ngRoute', 'ngAnimate', 'ngTouch'])
+    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
-
-            .when('/home', {
+            .when('home', {
                 templateUrl: 'public/index.html'
             })
-            .when('/about', {
+            .when('about', {
                 templateUrl: 'public/about.html'
             })
-            .when('/apps', {
+            .when('apps', {
                 templateUrl: 'public/apps.html'
             })
-            .when('/careers', {
+            .when('careers', {
                 templateUrl: 'public/careers.html'
             })
-            .when('/contact', {
+            .when('contact', {
                 templateUrl: 'public/contact.html'
             })
+
+        $locationProvider.html5Mode(true);
     }])
-
     .controller('pageController', function ($scope, $http, $location, $anchorScroll) {
-
-        $scope.anchor = '';
-
+        $scope.surePage = function () {
+            //hack for highlighted nav on refresh/reload
+            var token = $location.url().split('/')[1].toString() + 'Section';
+            console.log(token);
+            updateNav(token);
+            //end hack
+        }
         $scope.go = function (path, anchor) {
-
             $location.path(path);
             console.log('go() path: ' + path);
             $scope.anchor = anchor;
 
             scrollToPage($scope.anchor);
         }
-
         getSectionPlacement();
     })
 
@@ -56,7 +53,7 @@ function scrollToPage(anchor) {
 
     inMotion = true;
 
-    TweenLite.to(window, 0.5, {scrollTo: {y: pagePos}, ease: Circ.easeInOut, onComplete:motionLess});
+    TweenLite.to(window, 0.5, {scrollTo: {y: pagePos}, ease: Circ.easeInOut, onComplete: motionLess});
 }
 
 function motionLess() {
@@ -65,7 +62,6 @@ function motionLess() {
 
 function getSectionPlacement() {
     sections = document.querySelectorAll('section');
-
     btnHome = document.querySelector('#home');
     btnAbout = document.querySelector('#about');
     btnApps = document.querySelector('#apps');
@@ -74,7 +70,6 @@ function getSectionPlacement() {
 }
 
 function updateSectionPlacement() {
-
     offset = window.pageYOffset + 75;
     offsetUnder = offset - 50;
 
@@ -88,11 +83,21 @@ function updateSectionPlacement() {
 
 function updateNav(id) {
     switch (id) {
-        case 'homeSection': btnHome.focus(); break;
-        case 'aboutSection': btnAbout.focus(); break;
-        case 'appsSection': btnApps.focus(); break;
-        case 'careersSection': btnCareers.focus(); break;
-        case 'contactSection': btnContact.focus(); break;
+        case 'homeSection':
+            btnHome.focus();
+            break;
+        case 'aboutSection':
+            btnAbout.focus();
+            break;
+        case 'appsSection':
+            btnApps.focus();
+            break;
+        case 'careersSection':
+            btnCareers.focus();
+            break;
+        case 'contactSection':
+            btnContact.focus();
+            break;
     }
 }
 

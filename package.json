@@ -1,0 +1,13 @@
+{
+  "name": "Studio_Brainchild",
+  "version": "0.0.1",
+  "description": "Studio Brainchild web app.",
+  "main": "app.js",
+  "author": "Josh Longbrake via Studio Brainchild LLC",
+  "dependencies": {
+    "express": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "bcrypt-nodejs": "latest"
+  }
+}
