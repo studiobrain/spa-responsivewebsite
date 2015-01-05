@@ -1,63 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Studio Brainchild LLC</title>
-    <script src="http://code.angularjs.org/1.2.10/angular.js"></script>
-    <script src="http://code.angularjs.org/1.2.10/angular-animate.min.js"></script>
-    <script src="http://code.angularjs.org/1.2.10/angular-touch.js"></script>
-    <script src="http://code.angularjs.org/1.2.10/angular-route.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-    <script src="js/scrollToPlugin.js"></script>
-    <script src="js/control.js"></script>
-    <script type="text/javascript" src="//use.typekit.net/rlf4vlg.js"></script>
-    <script type="text/javascript">
-        try {
-            Typekit.load();
-        } catch (e) {
-        }
-    </script>
-    <link rel="stylesheet" href="styles/css/screen.css" type="text/css">
+  <title>Studio Brainchild LLC</title>
+  <script src="http://code.angularjs.org/1.2.10/angular.js"></script>
+  <script src="http://code.angularjs.org/1.2.10/angular-animate.min.js"></script>
+  <script src="http://code.angularjs.org/1.2.10/angular-touch.js"></script>
+  <script src="http://code.angularjs.org/1.2.10/angular-route.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script src="js/scrollToPlugin.js"></script>
+  <script src="js/control.js"></script>
+  <script type="text/javascript" src="//use.typekit.net/rlf4vlg.js"></script>
+  <script type="text/javascript">
+    try {
+      Typekit.load();
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="styles/css/screen.css" type="text/css">
 </head>
-<body ng-app="sb-web">
-<header>
-    <div class="navContainer" ng-controller="pageController" ng-init="surePage();">
-        <div class="logo"></div>
-        <nav>
-            <div class="borders">
-                <button ng-click="go('home', 'homeSection');" class="navItem"
-                        id="home">home
-                </button>
-                <button ng-click="go('about', 'aboutSection');" class="navItem" id="about">about
-                </button>
-                <button ng-click="go('apps', 'appsSection');" class="navItem" id="apps">apps
-                </button>
-                <button ng-click="go('careers', 'careersSection');" class="navItem" id="careers">
-                    careers
-                </button>
-                <button ng-click="go('contact', 'contactSection');" class="navItem" id="contact">
-                    contact
-                </button>
-            </div>
-        </nav>
+
+<body ng-app="sb-web" ng-controller="pageController">
+  <header>
+    <div class="navContainer" ng-init="surePage()" dir-scroll>
+      <div class="logo"></div>
+      <nav>
+        <div class="borders">
+          <button ng-click="go('home', 'homeSection');" class="navItem" id="home">home
+          </button>
+          <button ng-click="go('about', 'aboutSection');" class="navItem" id="about">about
+          </button>
+          <button ng-click="go('apps', 'appsSection');" class="navItem" id="apps">apps
+          </button>
+          <button ng-click="go('careers', 'careersSection');" class="navItem" id="careers">
+            careers
+          </button>
+          <button ng-click="go('contact', 'contactSection');" class="navItem" id="contact">
+            contact
+          </button>
+        </div>
+      </nav>
     </div>
-</header>
-<div class="sections">
-    <section id="homeSection">
-        <div class="interior"></div>
+  </header>
+  <div class="sections">
+    <section id="{{page.name}}Section" ng-repeat="page in pages">
+      <div class="interior">
+        <h2>{{page.name}}</h2>
+      </div>
     </section>
-    <section id="aboutSection">
-        <div class="interior"><h2>ABOUT</h2></div>
-    </section>
-    <section id="appsSection">
-        <div class="interior"><h2>APPS</h2></div>
-    </section>
-    <section id="careersSection">
-        <div class="interior"><h2>CAREERS</h2></div>
-    </section>
-    <section id="contactSection">
-        <div class="interior"><h2>CONTACT US</h2></div>
-    </section>
-    <footer></footer>
-</div>
+  </div>
 </body>
+
 </html>
